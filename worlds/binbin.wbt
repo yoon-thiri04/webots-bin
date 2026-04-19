@@ -1,0 +1,125 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.020931477530036737 0.3391106048525245 0.9405136208077822 0.1312042761986815
+  position -1.1102228324190246 -0.07696364633665441 0.12868120295855043
+}
+TexturedBackground {
+  texture "factory"
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 3 4
+}
+Robot {
+  translation -3.479277487063352e-09 -6.525829235020561e-09 -0.0029793131731069636
+  rotation 0.9467134195963581 -0.32108641571534996 -0.02524311389744144 9.695813432018507e-09
+  children [
+    Solid {
+      children [
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            position -4.808755480550646e-14
+            anchor 0 0.11 0.043
+          }
+          device [
+            RotationalMotor {
+              name "motor_1"
+            }
+          ]
+          endPoint Solid {
+            translation -1.426552829406623e-10 0.10999999913249316 0.04299673076349622
+            rotation 2.2426523242588141e-10 0.7071067811800049 0.7071067811930901 3.0000000004442944
+            children [
+              DEF wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0 0
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.017
+                  radius 0.04
+                }
+              }
+            ]
+            boundingObject USE wheel
+            physics DEF wheel_physics Physics {
+            }
+            linearVelocity 5.570051442344179e-22 2.0915043419619407e-25 -1.0377008071709867e-08
+            angularVelocity 5.437876999323656e-20 -2.1017111316698238e-16 -2.1440621707850564e-16
+          }
+        }
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            position -4.7079015085394976e-14
+            anchor 0 -0.11 0.043
+          }
+          device [
+            RotationalMotor {
+              name "motor_2"
+            }
+          ]
+          endPoint Solid {
+            translation -1.3964661528514688e-10 -0.11000000086960265 0.042996690500747566
+            rotation 2.1193601480753823e-10 0.70710678118038 0.7071067811927151 3.0000000004198717
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0 0
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.017
+                  radius 0.04
+                }
+              }
+            ]
+            name "solid(1)"
+            boundingObject USE wheel
+            physics USE wheel_physics
+            linearVelocity 8.427325778034443e-22 2.1186756509210536e-25 -1.0377008058310061e-08
+            angularVelocity 5.47271766508205e-20 -2.1205841682534375e-16 -2.1440620553188595e-16
+          }
+        }
+        Solid {
+          children [
+            Shape {
+            }
+          ]
+          name "solid(2)"
+        }
+        DEF body Pose {
+          translation 0 0 0.0615
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0 0 1
+                roughness 1
+                metalness 0
+              }
+              geometry Cylinder {
+                height 0.12
+                radius 0.1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  boundingObject USE body
+  physics Physics {
+  }
+  linearVelocity -4.676086315227677e-12 -1.3787438848448081e-11 1.9229131190691444e-10
+  angularVelocity 2.2977422223176876e-10 -7.792908801548454e-11 1.107155862520227e-16
+}
+USE body
